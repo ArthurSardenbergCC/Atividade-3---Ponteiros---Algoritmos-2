@@ -1,0 +1,107 @@
+Exercícios sobre ponteiros - atividade 3 - páginas 20 a 22
+
+Letra A
+1)
+#include <iostream>
+using namespace std;
+
+int main (){
+    int i = 0, *p_contador = 0;
+    i = 5;
+    p_contador = &i;
+    cout << "Valor de i: " << *p_contador << endl;
+    cout << "Valor de i: " << p_contador << endl;
+    return 0;
+}
+
+
+O valor impresso pela linha 4 será "5", pois o operador "*" retorna o valor que o ponteiro está apontando. Como o ponteiro aponta para o endereço de "i", o valor exibido será "5".
+
+O valor impresso pela linha 5 será "0x7ffed47df7fc", porque o ponteiro "p_contador" recebeu como valor o endereço da variável "i".
+
+
+2)
+#include <iostream>
+using namespace std;
+
+int main (){
+    int conta = 1;
+    float salario = 40000.0;
+    char resposta = 'S';
+    cout << "O endereço de conta: " << &conta << endl;
+    cout << "O endereço de salario: " << &salario << endl;
+    cout << "O endereço de resposta: " << &resposta << endl;
+    return 0;
+}
+
+O valor resultante da linha 4 será "0x7fff7239b590", pois o operador de endereço "&" irá fornecer à instrução "cout" o endereço utilizado para armazenar a variável "conta".
+
+O valor resultante da linha 5 será "0x7fff7239b594", porque o operador de endereço "&" irá fornecer à instrução "cout" o endereço utilizado para armazenar a variável "salario".
+
+O valor resultante da linha 6 será "S", pois o compilador não é capaz de fornecer o endereço de memória em que está o caractere "S", exibindo o próprio caractere. Isso ocorre devido à integração da tabela ASC II no C++, o que reserva um determinado número de endereços aos caracteres dessa tabela.
+
+
+3) 
+#include <iostream>
+using namespace std;
+
+int main (){
+    int num = 0, valor = 0, *p = 0;
+    num = 55;
+    p = &num;
+    valor = *p;
+    cout << valor << endl;
+    cout << p << endl;
+    cout << *p << endl;
+    return 0;
+}
+
+O valor resultante da linha 6 será "55", porque a variável "valor" recebeu o valor de "*p", sendo que o operador de indireção "*" forneceu o valor do endereço que o ponteiro "p" está apontando, isto é, "55".
+
+O valor resultante da linha 7 será "0x7ffc57691dd8", pois foi solicitado a impressão do conteúdo da variável "p", a qual é um ponteiro que aponta para o endereço da variável "num". O valor exibido, portanto, é o endereço de memória utilizado para armazenar a variável "num".
+
+O valor resultante da linha 8 será "55", porque o conteúdo de "*p" é resultado do valor do endereço que o ponteiro "p" está apontando, ou seja, o conteúdo do endereço de "num", o qual foi atribuído o valor de "55".
+
+
+
+Letra B
+1)
+A letra E é a opção correta, pois a declaração de um ponteiro é iniciada com o tipo primitivo desejado, seguida pelo operador unário "*" e o nome do ponteiro, o qual segue as regras de identificações padrões do C++. 
+
+2)
+A letra C realiza essa atribuição, pois o operador de endereço "&" fornece à variável "pti" o endereço de memória utilizado para armazenar a variável "i".
+
+3)
+A letra B e D são instruções válidas. A primeira é um processamento que atribui o valor do endereço para o qual o ponteiro aponta à variável "i". Já a segunda é um declaração de uma variável inteira chamada "pti".
+
+
+
+Letra C
+A afirmação 5 é falsa, pois o ponteiro "pti" terá como valor o endereço de memória utilizado para armazenar a variável "i", não o conteúdo desse endereço.
+
+A afirmação 1 é verdadeira, porque a linha 3 mostra uma atribuição do endereço de "i" para "pti".
+
+A afirmação 2 é verdadeira, pois "*pti" fornece o conteúdo do endereço de memória que o ponteiro "pti" está apontando.
+
+A afirmação 3 é verdadeira, porque como o ponteiro está apontando para o endereço de "i", modificar o valor que o ponteiro está apontando (*pti) é alterar o próprio valor de "i".
+
+A afirmação 4 é verdadeira pelo mesmos motivo da afirmação anterior, ou seja, como "*pti" está ligado a "i", alterar um modificará o outro.
+
+
+
+Letra D
+#include <iostream>
+using namespace std;
+
+int main (){
+    float numero1 = 7.3, numero2 = 0, *fP = 0;
+    fP = &numero1;
+    cout << *fP << endl;
+    numero2 = *fP;
+    cout << numero2 << endl;
+    cout << &numero1 << endl;
+    cout << fP << endl;
+    return 0;
+}
+
+Os endereços impressos são iguais, pois, após o processamento "fP = &numero1", a variável ponteiro "fP" passa a armazenar o endereço de memória de "numero1".
